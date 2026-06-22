@@ -1,0 +1,544 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Himanshu Maurya — QA Engineer</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --teal:#0F4C4A;
+    --teal-light:#1B6B68;
+    --cream:#FAF8F3;
+    --cream-deep:#F0EBDF;
+    --terracotta:#C2683D;
+    --charcoal:#2A2A28;
+    --sage:#7A9E8E;
+    --pass:#3E8A6E;
+    --line:#DDD6C5;
+  }
+  *{margin:0;padding:0;box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{
+    background:var(--cream);
+    color:var(--charcoal);
+    font-family:'Inter',sans-serif;
+    line-height:1.6;
+    overflow-x:hidden;
+  }
+  h1,h2,h3,.display{font-family:'Space Grotesk',sans-serif;}
+  .mono{font-family:'JetBrains Mono',monospace;}
+  a{color:inherit;text-decoration:none;}
+
+  .wrap{max-width:880px;margin:0 auto;padding:0 28px;}
+
+  /* ===== NAV ===== */
+  nav{
+    position:sticky;top:0;z-index:50;
+    background:rgba(250,248,243,0.92);
+    backdrop-filter:blur(8px);
+    border-bottom:1px solid var(--line);
+  }
+  .nav-inner{
+    max-width:880px;margin:0 auto;padding:16px 28px;
+    display:flex;justify-content:space-between;align-items:center;
+  }
+  .logo{font-weight:600;font-size:15px;letter-spacing:-0.01em;}
+  .logo .dot{color:var(--pass);}
+  .nav-links{display:flex;gap:28px;font-size:13px;font-weight:500;color:var(--teal);}
+  .nav-links a{opacity:0.75;transition:opacity .2s;}
+  .nav-links a:hover{opacity:1;}
+
+  /* ===== HERO ===== */
+  .hero{padding:88px 0 64px;position:relative;}
+  .console{
+    background:var(--charcoal);
+    border-radius:10px;
+    padding:18px 22px;
+    max-width:420px;
+    margin-bottom:36px;
+    box-shadow:0 18px 40px -18px rgba(15,76,74,0.35);
+  }
+  .console-line{
+    font-family:'JetBrains Mono',monospace;
+    font-size:12.5px;
+    color:#9FB8A8;
+    display:flex;
+    align-items:center;
+    gap:8px;
+    padding:3px 0;
+    opacity:0;
+    animation:typeIn .4s ease forwards;
+  }
+  .console-line:nth-child(1){animation-delay:.1s}
+  .console-line:nth-child(2){animation-delay:.4s}
+  .console-line:nth-child(3){animation-delay:.7s}
+  .console-line:nth-child(4){animation-delay:1.0s}
+  @keyframes typeIn{to{opacity:1}}
+  .pass-tag{color:var(--pass);font-weight:600;}
+  .console .label{color:#6B8579;}
+
+  .status-badge{
+    display:inline-flex;align-items:center;gap:8px;
+    background:#fff;
+    border:1px solid var(--line);
+    border-radius:30px;
+    padding:7px 16px 7px 12px;
+    font-size:12.5px;font-weight:600;
+    color:var(--charcoal);
+    margin-bottom:22px;
+    box-shadow:0 4px 14px -8px rgba(15,76,74,0.15);
+  }
+  .status-dot{
+    width:8px;height:8px;border-radius:50%;
+    background:var(--pass);
+    box-shadow:0 0 0 0 rgba(62,138,110,0.5);
+    animation:pulse 2s infinite;
+  }
+  @keyframes pulse{
+    0%{box-shadow:0 0 0 0 rgba(62,138,110,0.45);}
+    70%{box-shadow:0 0 0 6px rgba(62,138,110,0);}
+    100%{box-shadow:0 0 0 0 rgba(62,138,110,0);}
+  }
+  .hero-visual{position:relative;margin-bottom:28px;}
+  .float-badge{
+    position:absolute;
+    background:#fff;
+    border:1px solid var(--line);
+    border-radius:10px;
+    padding:9px 13px;
+    font-size:12px;
+    box-shadow:0 14px 30px -14px rgba(15,76,74,0.25);
+    display:flex;align-items:center;gap:8px;
+    animation:floaty 4s ease-in-out infinite;
+  }
+  .float-badge .num{font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:15px;color:var(--teal);}
+  .float-badge .lbl{color:var(--charcoal);opacity:0.65;font-size:11px;line-height:1.3;}
+  .fb-1{top:6px;right:8%;animation-delay:0s;}
+  .fb-2{top:78px;right:-2%;animation-delay:.8s;}
+  .fb-3{top:148px;right:10%;animation-delay:1.6s;}
+  @keyframes floaty{
+    0%,100%{transform:translateY(0);}
+    50%{transform:translateY(-7px);}
+  }
+  .hero h1{
+    font-size:50px;
+    font-weight:600;
+    letter-spacing:-0.02em;
+    line-height:1.08;
+    color:var(--teal);
+    margin-bottom:14px;
+  }
+  .hero h1 .accent{color:var(--terracotta);}
+  .hero .role{
+    font-size:17px;
+    color:var(--charcoal);
+    opacity:0.78;
+    max-width:520px;
+    margin-bottom:28px;
+  }
+  .hero-actions{display:flex;gap:14px;flex-wrap:wrap;}
+  .btn{
+    display:inline-flex;align-items:center;gap:8px;
+    padding:11px 22px;
+    border-radius:7px;
+    font-size:14px;font-weight:600;
+    transition:transform .15s, box-shadow .15s;
+    border:1.5px solid transparent;
+  }
+  .btn-primary{background:var(--teal);color:var(--cream);}
+  .btn-primary:hover{transform:translateY(-1px);box-shadow:0 8px 18px -8px rgba(15,76,74,0.5);}
+  .btn-ghost{border-color:var(--teal);color:var(--teal);}
+  .btn-ghost:hover{background:var(--teal);color:var(--cream);}
+
+  /* ===== SECTION HEADERS ===== */
+  .sec{padding:56px 0;border-top:1px solid var(--line);}
+  .sec-eyebrow{
+    font-family:'JetBrains Mono',monospace;
+    font-size:11.5px;
+    color:var(--terracotta);
+    letter-spacing:0.08em;
+    text-transform:uppercase;
+    margin-bottom:8px;
+    display:flex;align-items:center;gap:8px;
+  }
+  .sec-eyebrow::before{content:'';width:6px;height:6px;border-radius:50%;background:var(--terracotta);}
+  .sec h2{font-size:28px;font-weight:600;color:var(--teal);letter-spacing:-0.01em;margin-bottom:28px;}
+
+  /* ===== ABOUT ===== */
+  .about-text{font-size:15.5px;color:var(--charcoal);max-width:640px;}
+  .about-text strong{color:var(--teal);}
+
+  /* ===== TEST SUITE (Skills) ===== */
+  .suite{
+    background:var(--cream-deep);
+    border:1px solid var(--line);
+    border-radius:12px;
+    padding:8px;
+  }
+  .suite-row{
+    display:flex;align-items:center;gap:14px;
+    padding:14px 16px;
+    border-radius:8px;
+    transition:background .2s, transform .2s;
+  }
+  .suite-row:hover{background:rgba(255,255,255,0.7);transform:translateX(3px);}
+  .suite-row + .suite-row{border-top:1px solid var(--line);}
+  .status-chip{
+    font-family:'JetBrains Mono',monospace;
+    font-size:10.5px;font-weight:600;
+    padding:3px 9px;border-radius:20px;
+    background:rgba(62,138,110,0.14);
+    color:var(--pass);
+    white-space:nowrap;
+    min-width:64px;text-align:center;
+  }
+  .suite-name{font-weight:600;font-size:14.5px;color:var(--teal);min-width:150px;}
+  .suite-detail{font-size:13px;color:var(--charcoal);opacity:0.72;}
+  .suite-bar-wrap{margin-left:auto;width:80px;height:5px;background:var(--line);border-radius:3px;overflow:hidden;flex-shrink:0;}
+  .suite-bar{height:100%;background:var(--pass);border-radius:3px;}
+
+  /* ===== EXPERIENCE TIMELINE ===== */
+  .case{
+    border:1px solid var(--line);
+    border-radius:10px;
+    padding:22px 24px;
+    margin-bottom:16px;
+    background:#fff;
+    position:relative;
+    transition:box-shadow .2s, transform .2s;
+  }
+  .case:hover{box-shadow:0 16px 32px -18px rgba(15,76,74,0.22);transform:translateY(-2px);}
+  .case-id{
+    font-family:'JetBrains Mono',monospace;
+    font-size:11px;color:var(--sage);
+    margin-bottom:6px;
+  }
+  .case-head{display:flex;justify-content:space-between;align-items:baseline;flex-wrap:wrap;gap:6px;margin-bottom:4px;}
+  .case-title{font-size:16.5px;font-weight:600;color:var(--teal);}
+  .case-time{font-family:'JetBrains Mono',monospace;font-size:12px;color:var(--terracotta);}
+  .case-role{font-size:13px;color:var(--charcoal);opacity:0.65;margin-bottom:12px;}
+  .case ul{list-style:none;padding:0;}
+  .case li{
+    font-size:14px;padding:6px 0 6px 22px;position:relative;color:var(--charcoal);
+  }
+  .case li::before{
+    content:'✓';position:absolute;left:0;top:6px;
+    color:var(--pass);font-weight:700;font-size:13px;
+  }
+
+  /* ===== PROJECT ===== */
+  .project-card{
+    border:1px solid var(--line);
+    border-radius:10px;
+    overflow:hidden;
+    background:#fff;
+  }
+  .project-banner{
+    background:linear-gradient(135deg, var(--teal) 0%, var(--teal-light) 100%);
+    padding:28px 24px;
+    color:var(--cream);
+  }
+  .project-banner .tag{
+    font-family:'JetBrains Mono',monospace;font-size:11px;
+    background:rgba(255,255,255,0.15);
+    padding:3px 10px;border-radius:20px;
+    display:inline-block;margin-bottom:10px;
+  }
+  .project-banner h3{font-size:19px;font-weight:600;}
+  .project-body{padding:20px 24px;}
+  .project-body p{font-size:14px;color:var(--charcoal);opacity:0.82;margin-bottom:14px;}
+  .feature-pills{display:flex;flex-wrap:wrap;gap:7px;}
+  .pill{
+    font-family:'JetBrains Mono',monospace;
+    font-size:11.5px;
+    background:var(--cream-deep);
+    border:1px solid var(--line);
+    padding:4px 11px;border-radius:20px;
+    color:var(--teal);
+  }
+
+  /* ===== EDUCATION ===== */
+  .edu-row{
+    display:flex;justify-content:space-between;align-items:baseline;
+    padding:14px 0;border-bottom:1px solid var(--line);
+    flex-wrap:wrap;gap:6px;
+  }
+  .edu-row:last-child{border-bottom:none;}
+  .edu-name{font-weight:600;font-size:14.5px;color:var(--teal);}
+  .edu-school{font-size:13px;opacity:0.65;}
+  .edu-score{font-family:'JetBrains Mono',monospace;font-size:13px;color:var(--terracotta);font-weight:600;}
+
+  /* ===== CONTACT ===== */
+  .contact-card{
+    background:var(--teal);
+    border-radius:14px;
+    padding:40px 32px;
+    color:var(--cream);
+    text-align:center;
+  }
+  .contact-card h2{color:var(--cream);font-size:26px;margin-bottom:10px;}
+  .contact-card p{opacity:0.82;margin-bottom:24px;font-size:14.5px;}
+  .contact-links{display:flex;gap:14px;justify-content:center;flex-wrap:wrap;}
+  .contact-links a{
+    font-size:13.5px;font-weight:600;
+    padding:10px 18px;border-radius:7px;
+    background:rgba(255,255,255,0.1);
+    border:1px solid rgba(255,255,255,0.25);
+    transition:background .2s;
+  }
+  .contact-links a:hover{background:rgba(255,255,255,0.2);}
+
+  .cert-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;}
+  .cert-card{
+    background:#fff;border:1px solid var(--line);border-radius:10px;
+    padding:18px 16px;text-align:center;
+    transition:transform .2s, box-shadow .2s;
+  }
+  .cert-card:hover{transform:translateY(-3px);box-shadow:0 16px 28px -16px rgba(15,76,74,0.2);}
+  .cert-icon{
+    width:38px;height:38px;border-radius:9px;
+    background:var(--cream-deep);
+    display:flex;align-items:center;justify-content:center;
+    margin:0 auto 10px;
+    font-family:'JetBrains Mono',monospace;font-weight:700;color:var(--pass);font-size:14px;
+  }
+  .cert-name{font-size:13px;font-weight:600;color:var(--teal);line-height:1.4;}
+
+  footer{
+    text-align:center;padding:28px 0;
+    font-size:12px;color:var(--sage);
+    font-family:'JetBrains Mono',monospace;
+  }
+
+  @media (max-width:600px){
+    .hero h1{font-size:36px;}
+    .sec h2{font-size:23px;}
+    .suite-row{flex-wrap:wrap;}
+    .suite-bar-wrap{display:none;}
+    .case-head{flex-direction:column;}
+    .float-badge{position:static;display:inline-flex;margin:4px 6px 0 0;animation:none;}
+    .hero-visual{display:flex;flex-wrap:wrap;gap:6px;}
+    .cert-grid{grid-template-columns:1fr;}
+  }
+
+  @media (prefers-reduced-motion:reduce){
+    .console-line{animation:none;opacity:1;}
+  }
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="nav-inner">
+    <div class="logo">himanshu<span class="dot">.</span>test</div>
+    <div class="nav-links">
+      <a href="#about">About</a>
+      <a href="#skills">Skills</a>
+      <a href="#experience">Experience</a>
+      <a href="#contact">Contact</a>
+    </div>
+  </div>
+</nav>
+
+<header class="hero">
+  <div class="wrap">
+    <div class="hero-visual">
+      <div class="console">
+        <div class="console-line"><span class="label">$</span> running test_suite --candidate</div>
+        <div class="console-line"><span class="label">→</span> manual_testing ............ <span class="pass-tag">PASS</span></div>
+        <div class="console-line"><span class="label">→</span> selenium_automation ....... <span class="pass-tag">PASS</span></div>
+        <div class="console-line"><span class="label">→</span> sql_queries ................ <span class="pass-tag">PASS</span></div>
+      </div>
+      <div class="float-badge fb-1"><span class="num">6</span><span class="lbl">months<br>internship</span></div>
+      <div class="float-badge fb-2"><span class="num">3</span><span class="lbl">live projects<br>tested</span></div>
+      <div class="float-badge fb-3"><span class="num">8.09</span><span class="lbl">CGPA<br>BSc CS</span></div>
+    </div>
+
+    <div class="status-badge"><span class="status-dot"></span>Available for work — Pune</div>
+
+    <h1>Himanshu Maurya<br>finds bugs <span class="accent">before users do.</span></h1>
+    <p class="role">QA Engineer specializing in Manual & Automation Testing — Selenium, SQL, and a sharp eye for what breaks before it ships.</p>
+
+    <div class="hero-actions">
+      <a class="btn btn-primary" href="mailto:himanshumaurya709@gmail.com">Get in touch</a>
+      <a class="btn btn-ghost" href="https://linkedin.com/in/himanshu-maurya821a4226a" target="_blank">View LinkedIn</a>
+    </div>
+  </div>
+</header>
+
+<section class="sec" id="about">
+  <div class="wrap">
+    <div class="sec-eyebrow">01 — About</div>
+    <h2>Test case for a career</h2>
+    <p class="about-text">
+      I'm a <strong>QA Engineer</strong> based in Pune with hands-on experience across manual and automation testing. My background is in Computer Science (BSc, 2022), followed by focused training at QSpiders and a 6-month internship at Robowaves Software Solution — where I tested web and mobile applications across e-commerce, service, and corporate domains.
+    </p>
+    <br>
+    <p class="about-text">
+      I think about software the way a tester should: <strong>what happens when this breaks?</strong> That mindset, combined with Selenium automation and SQL, is what I bring to every project.
+    </p>
+  </div>
+</section>
+
+<section class="sec" id="skills">
+  <div class="wrap">
+    <div class="sec-eyebrow">02 — Test Suite</div>
+    <h2>Skills & coverage</h2>
+
+    <div class="suite">
+      <div class="suite-row">
+        <span class="status-chip">PASS</span>
+        <span class="suite-name">Manual Testing</span>
+        <span class="suite-detail">Black/White Box, Smoke, Sanity, Adhoc, Defect Lifecycle</span>
+        <div class="suite-bar-wrap"><div class="suite-bar" style="width:92%"></div></div>
+      </div>
+      <div class="suite-row">
+        <span class="status-chip">PASS</span>
+        <span class="suite-name">Selenium WebDriver</span>
+        <span class="suite-detail">TestNG, XPath, multi-browser automation</span>
+        <div class="suite-bar-wrap"><div class="suite-bar" style="width:85%"></div></div>
+      </div>
+      <div class="suite-row">
+        <span class="status-chip">PASS</span>
+        <span class="suite-name">SQL</span>
+        <span class="suite-detail">Joins, subqueries, correlated queries, operators</span>
+        <div class="suite-bar-wrap"><div class="suite-bar" style="width:88%"></div></div>
+      </div>
+      <div class="suite-row">
+        <span class="status-chip" style="background:rgba(194,104,61,0.14);color:var(--terracotta);">RUNNING</span>
+        <span class="suite-name">Python + AI Testing</span>
+        <span class="suite-detail">Currently building — automation scripting, AI-based QA tools</span>
+        <div class="suite-bar-wrap"><div class="suite-bar" style="width:45%;background:var(--terracotta);"></div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="sec" id="experience">
+  <div class="wrap">
+    <div class="sec-eyebrow">03 — Test Cases Executed</div>
+    <h2>Experience</h2>
+
+    <div class="case">
+      <div class="case-id">TC-001 / INTERNSHIP</div>
+      <div class="case-head">
+        <span class="case-title">Robowaves Software Solution</span>
+        <span class="case-time">Jan – Jun 2025</span>
+      </div>
+      <div class="case-role">Software Testing Intern</div>
+      <ul>
+        <li>Tested 3 live projects — 2 web apps, 1 mobile app across e-commerce, service, and corporate domains</li>
+        <li>Conducted KT sessions to translate client requirements into test plans</li>
+        <li>Designed test scenarios and test cases for functional + regression coverage</li>
+        <li>Converted manual test cases into automation scripts using an AI-based testing platform</li>
+      </ul>
+    </div>
+
+    <div class="case">
+      <div class="case-id">TC-002 / TRAINING</div>
+      <div class="case-head">
+        <span class="case-title">QSpiders — Full Stack Software Testing</span>
+        <span class="case-time">Aug 2023 – Oct 2024</span>
+      </div>
+      <div class="case-role">Certified Training Program</div>
+      <ul>
+        <li>Manual Testing, Selenium WebDriver, TestNG, and SQL — covered in depth</li>
+        <li>Earned certifications in Manual Testing & Agile Methodology, SQL, and Selenium</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<section class="sec">
+  <div class="wrap">
+    <div class="sec-eyebrow">04 — Featured Build</div>
+    <h2>Project</h2>
+
+    <div class="project-card">
+      <div class="project-banner">
+        <span class="tag">Final Year Project</span>
+        <h3>MV Web Browser</h3>
+      </div>
+      <div class="project-body">
+        <p>A custom-built web browser developed as a final-year Computer Science project, with core navigation (back, forward, refresh, stop), an address bar for direct URL input, and a history tracking system for visited pages.</p>
+        <div class="feature-pills">
+          <span class="pill">Tabbed Browsing</span>
+          <span class="pill">History Management</span>
+          <span class="pill">Address Bar Navigation</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="sec">
+  <div class="wrap">
+    <div class="sec-eyebrow">05 — Background</div>
+    <h2>Education</h2>
+
+    <div class="edu-row">
+      <div>
+        <div class="edu-name">BSc Computer Science</div>
+        <div class="edu-school">Vishwakarma College, Pune · 2022</div>
+      </div>
+      <div class="edu-score">CGPA 8.09</div>
+    </div>
+    <div class="edu-row">
+      <div>
+        <div class="edu-name">HSC</div>
+        <div class="edu-school">Roseland Junior College · 2019</div>
+      </div>
+      <div class="edu-score">56.15%</div>
+    </div>
+    <div class="edu-row">
+      <div>
+        <div class="edu-name">SSC</div>
+        <div class="edu-school">Roseland English Medium School · 2017</div>
+      </div>
+      <div class="edu-score">65.00%</div>
+    </div>
+  </div>
+</section>
+
+<section class="sec">
+  <div class="wrap">
+    <div class="sec-eyebrow">06 — Verified</div>
+    <h2>Certifications</h2>
+
+    <div class="cert-grid">
+      <div class="cert-card">
+        <div class="cert-icon">MT</div>
+        <div class="cert-name">Manual Testing &amp;<br>Agile Methodology</div>
+      </div>
+      <div class="cert-card">
+        <div class="cert-icon">SQ</div>
+        <div class="cert-name">SQL —<br>Database Testing</div>
+      </div>
+      <div class="cert-card">
+        <div class="cert-icon">SE</div>
+        <div class="cert-name">Selenium<br>WebDriver Automation</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="sec" id="contact">
+  <div class="wrap">
+    <div class="contact-card">
+      <h2>Let's talk testing.</h2>
+      <p>Open to QA Engineer and Automation Testing roles in Pune.</p>
+      <div class="contact-links">
+        <a href="mailto:himanshumaurya709@gmail.com">himanshumaurya709@gmail.com</a>
+        <a href="tel:9284190355">+91 92841 90355</a>
+        <a href="https://linkedin.com/in/himanshu-maurya821a4226a" target="_blank">LinkedIn ↗</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>// end_of_file — built by Himanshu Maurya</footer>
+
+</body>
+</html>
